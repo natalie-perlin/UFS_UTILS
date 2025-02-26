@@ -43,13 +43,17 @@ load(pathJoin("w3emc", w3emc_ver))
 sigio_ver=os.getenv("sigio_ver") or "2.3.2"
 load(pathJoin("sigio", sigio_ver))
 
-nccmp_ver=os.getenv("nccmp_ver") or "1.9.1"
+nccmp_ver=os.getenv("nccmp_ver") or "1.9.0.1"
 load(pathJoin("nccmp", nccmp_ver))
 
-esmf_ver=os.getenv("esmf_ver") or "8.5.0"
+esmf_ver=os.getenv("esmf_ver") or "8.6.0"
 load(pathJoin("esmf", esmf_ver))
 
-nco_ver=os.getenv("nco_ver") or "5.1.6"
+nco_ver=os.getenv("nco_ver") or "5.0.6"
 load(pathJoin("nco", nco_ver))
+
+setenv("CC", "mpicc")
+setenv("CXX", "mpic++")
+setenv("FC", "mpif90")
 
 whatis("Description: UFS_UTILS build environment")
