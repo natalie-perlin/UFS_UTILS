@@ -1,5 +1,5 @@
 help([[
-Load environment to compile UFS_UTILS on Hera using Gnu
+Load environment to compile UFS_UTILS on Hera using Gnu 13.3
 ]])
 
 hpss_ver=os.getenv("hpss_ver") or ""
@@ -51,6 +51,11 @@ load(pathJoin("esmf", esmf_ver))
 
 nco_ver=os.getenv("nco_ver") or "5.0.6"
 load(pathJoin("nco", nco_ver))
+
+
+prepend_path("CPPFLAGS", " -I/apps/slurm_hera/23.11.3/include/slurm"," ")
+prepend_path("LD_LIBRARY_PATH", "/apps/slurm_hera/23.11.3/lib")
+setenv("LD_PRELOAD", "/scratch2/NCEPDEV/stmp1/role.epic/installs/gnu/13.3.0/lib64/libstdc++.so.6")
 
 setenv("CC", "mpicc")
 setenv("CXX", "mpic++")
